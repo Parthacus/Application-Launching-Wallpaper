@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Startpage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css">
+</head>
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script>
+
+var keywords = ["MAXIMISE", "MAXIMIZE", "MUTE", "CHROME"]
+
+function request(method,command){
+  var success = false;
+  fetch("http://localhost:8080/?command=" + encodeURI(command), {method: method})
+  .then(
+    function(response){
+      if (response.status == 200){
+        $('.email input').parent().addClass('success');
+        console.log("switched");
+      } else {
+        $('.email input').parent().removeClass('success');
+      }
+    })
+};
+
+function launch(command){
+  //linux addin commands
+  var commandarr = command.split(" ");
+  var keyword = commandarr[0].toUpperCase();
+
+  //maximise
+  if (keyword == "MAXIMISE" || keyword == "MAXIMIZE"){
+    commandarr[0] = "wmctrl -a";
+  }
+
+  //mute
+  if (keyword == "MUTE") {
+    commandarr[0] = "amixer -q -D pulse sset Master toggle";
+  }
+  
+  //chrome
+  if (keywords == "CHROME"){
+    commandarr[0] = "google-chrome";
+  }
+
+  command = commandarr.join(" ");
+  console.log(command)
+  request("POST", command);
+  setTimeout(function(){$('.email input').parent().removeClass('success');}, 1000);
+};
+
+function getValue(id){
+  return document.getElementById(id).value;
+}
+
+function search(){
+  var t = getValue('searchbar');
+  console.log(t);
+  launch(t);
+  $(".email input").val("");
+}
+
+function verifyCommand(command){
+  if (request("GET", command) == true || keywords.includes(command.toUpperCase().split(" ")[0]) == true){
+    console.log("success");
+    return true;
+  } else{
+    return false;
+  }
+}
+
+function answer(e) {
+    if (e.keyCode == 13) {
+      search();
+     }
+}
+
+document.addEventListener('keydown', function(event) {
+  document.getElementById("searchbar").focus();
+}, true);
+
+</script>
+
+<body>
+
+<!-- <div class="containemail"> -->
+  <div class="email">
+    <input type="text" placeholder="enter command" autofocus id="searchbar" onkeydown="return answer(event)" oninput="request('GET', getValue('searchbar'))">
+    <svg viewBox="0 0 16 16">
+      <path d="M10.8000002,10.8000002 C9.85000038,11.6500006 9.18349609,12 8,12 C5.80000019,12 4,10.1999998 4,8 C4,5.80000019 5.80000019,4 8,4 C10.1999998,4 12,6 12,8 C12,9.35332031 12.75,9.5 13.5,9.5 C14.25,9.5 15,8.60000038 15,8 C15,4 12,1 8,1 C4,1 1,4 1,8 C1,12 4,15 8,15 C12,15 15,12 15,8"></path>
+      <polyline points="5 8.375 7.59090909 11 14.5 4" transform='translate(0 -0.5)'></polyline>
+    </svg>
+  </div>
+  
+</body>
+
+</html>
