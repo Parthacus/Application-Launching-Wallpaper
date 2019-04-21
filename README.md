@@ -3,7 +3,7 @@ An application launcher designed for openbox that works like a wallpaper but can
 
 
 Screenshot:
-![Screenshot](https://raw.githubusercontent.com/Parthacus/Application-Launching-Wallpaper/master/2019-04-21-201734_1366x768_scrot.png)
+![Screenshot](https://raw.githubusercontent.com/Parthacus/Application-Launching-Wallpaper/master/screenshot1.png)
 
 The launcher is hosted on localhost:8081 which can be accessed through a browser when the scripts are running, additionally, to make it function like an interactive wallpaper, you need to pick a browser (I went with surf browser for lightness), add the wm settings to hide it from pager, taskbar, to maximise it, to hide the window decorations and layer it below all other applications by default (in the case of openbox):
 
