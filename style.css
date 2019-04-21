@@ -1,0 +1,193 @@
+ @import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+.email {
+  align-self: center;
+  position: relative;
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 500px;
+  margin-top: 20%;
+}
+
+.grid-container {
+  margin-top: 25%;
+  margin-left: 32%;
+  padding-right: 0px;
+
+  position: fixed;
+  border-radius: 25px;
+  box-shadow: 4px 13px 30px 1px rgba(192, 204, 216, 0.2);
+  background-color: #31404e;
+  display: grid;
+  grid-template-columns: 22.5ch 22.5ch 22.5ch;
+
+}
+
+.containemail {
+align-self: center;
+width: 1337px;
+
+}
+
+.email input {
+  align-content: center;
+  outline: none;
+  width: 100%;
+  font-weight: bold;
+  font-size: 30px;
+  border: 0;
+  border-radius: 4px;
+  line-height: 40px;
+  font-family: 'Slabo 27px', serif;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  padding: 12px 12px 12px 18px;
+  color: #797C86;
+}
+.email input::-webkit-input-placeholder {
+  color: #C7C8CC;
+}
+.email input:-moz-placeholder {
+  color: #C7C8CC;
+}
+.email input::-moz-placeholder {
+  color: #C7C8CC;
+}
+.email input:-ms-input-placeholder {
+  color: #C7C8CC;
+}
+.email svg {
+  position: absolute;
+  z-index: 1;
+  right: 14px;
+  top: 40%;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 35px;
+  height: 35px;
+  fill: none;
+  margin: -10px 0 0 0;
+}
+.email svg polyline,
+.email svg path {
+  stroke: #D1D7E3;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke .3s ease 0s;
+}
+.email svg path {
+  stroke-dasharray: 64;
+  stroke-dashoffset: 127;
+  transition: stroke-dasharray .8s ease .8s, stroke-dashoffset .8s ease .5s;
+}
+.email svg polyline {
+  stroke-dasharray: 18;
+  stroke-dashoffset: 18;
+  transition: stroke-dashoffset .5s ease 0s;
+}
+.email.success svg polyline,
+.email.success svg path {
+  stroke: #69DD95;
+}
+.email.success svg path {
+  stroke-dasharray: 46;
+  stroke-dashoffset: 150;
+  transition: stroke-dasharray .6s ease 0s, stroke-dashoffset .8s ease .3s, stroke .3s ease .6s;
+}
+.email.success svg polyline {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset .5s ease .6s, stroke .3s ease .6s;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+}
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+.grid-item {
+  text-align: center;
+
+}
+
+/* line 31, style.scss */
+#link-section {
+  max-width: 900px;
+  padding-top: 100px;
+  margin: auto;
+  text-align: center; }
+
+/* line 39, style.scss */
+.link-box-wrapper {
+  display: inline-block;
+
+  height: 157.5px;
+  width: 180px;
+  padding: 10px;
+  border-radius: 22.5px; }
+
+/* line 47, style.scss */
+.link-box-wrapper:hover {
+  background-color: rgba(0, 0, 0, 0.1); }
+
+/* line 50, style.scss */
+.link-box {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding-top: 10px; }
+
+/* line 56, style.scss */
+.box-image-wrapper {
+  height: 50px;
+  width: 80px;
+  text-align: center;
+  margin: auto; }
+
+/* line 62, style.scss */
+.link-box img {
+  position: relative;
+  max-width: 120px;
+  max-height: 75px;
+  border-radius: 15px; }
+
+/* line 68, style.scss */
+.link-box .name {
+  margin-top: 50px;
+  position: relative;
+  font-size: 16px;
+  color: white;
+  width: 100%;
+  text-align: center; }
+
+body {
+  min-height:95vh;
+  font-family: Roboto, Arial;
+  color: #ADAFB6;
+  display: flex;
+  /*justify-content: center;
+  align-items: center;*/
+  background-image: linear-gradient(to bottom right, #79F1A4, #0E5CAD);
+}
+body .dribbble {
+  position: fixed;
+  display: block;
+  right: 20px;
+  bottom: 20px;
+  opacity: .5;
+  transition: all .4s ease;
+}
+body .dribbble:hover {
+  opacity: 1;
+}
+body .dribbble img {
+  display: block;
+  height: 36px;
+}
